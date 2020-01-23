@@ -43,15 +43,23 @@ $(document).ready(function(){
 function getData() {
     if(number == 0) {
         $("#results").append(`<div class='col-12'><p class='text-muted'>Fetching data from ${apis[number].api}</p>`);
-        fetch(apis[number].api)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(todo => {
+        // fetch(apis[number].api)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         data.forEach(todo => {
+        //             console.log(todo);
+        //             $("#results").append(`<div class='col-sm-4 mb-4'><div class="card"><div class="card-header"><p class='jumbotron-heading'>${todo.title}</p></div><div class="card-body"><p class='text-muted'>${todo.completed}</p></div></div></div>`);
+        //         })
+        //     })
+        //     .catch(err => console.err(err))
+        axios.get(apis[number].api)
+            .then(res => {
+                res.data.forEach(todo => {
                     console.log(todo);
                     $("#results").append(`<div class='col-sm-4 mb-4'><div class="card"><div class="card-header"><p class='jumbotron-heading'>${todo.title}</p></div><div class="card-body"><p class='text-muted'>${todo.completed}</p></div></div></div>`);
                 })
             })
-            .catch(err => console.err(err))
+            .catch(err => console.error(err))
     } else {
         alert("Error - Nothing found.")
     }
