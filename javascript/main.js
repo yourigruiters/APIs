@@ -6,7 +6,7 @@ const apis = [
         title: "JSON Placeholder",
         information: "JSONPlaceholder is a free online REST API that you can use whenever you need some fake data.It's great for tutorials, testing new libraries, sharing code examples, ...",
         link: "https://jsonplaceholder.typicode.com/",
-        api: "https://jsonplaceholder.typicode.com/todos/"
+        api: "https://jsonplaceholder.typicode.com/todos/?_limit=5"
     },{
         id: 1,
         title: "API Football",
